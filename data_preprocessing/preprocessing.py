@@ -113,6 +113,7 @@ class Preprocessor:
         try:
             imputer=KNNImputer(n_neighbors=3, weights='uniform',missing_values=np.nan)
             self.new_array=imputer.fit_transform(self.data) # impute the missing values
+            
             # convert the nd-array returned in the step above to a Dataframe
             self.new_data=pd.DataFrame(data=self.new_array, columns=self.data.columns)
             self.logger_object.log(self.file_object, 'Imputing missing values Successful. Exited the impute_missing_values method of the Preprocessor class')
